@@ -1,0 +1,3 @@
+nubbe_homepage:
+    path:     /
+    defaults: { _controller: NubbeBundle:Default:index }

@@ -1,0 +1,13 @@
+.nav{
+    height: 240px;
+}
+.leftlogo{
+    position: absolute;
+    top: 50px;
+    left: 80px;
+}
+.rightlogo{
+    position: absolute;
+    top: 80px;
+    right: 100px;
+ }
