@@ -11,3 +11,11 @@
     top: 80px;
     right: 100px;
  }
+.carousel{
+    position: relative;
+    bottom: 20px;
+}
+.rightlogo a{
+    margin-right: 12px;
+    font-weight: bold;
+}

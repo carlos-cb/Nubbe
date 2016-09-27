@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('NubbeBundle:Default:index.html.twig');
     }
+
+    public function contactAction()
+    {
+        return $this->render('NubbeBundle:Default:contact.html.twig');
+    }
 }

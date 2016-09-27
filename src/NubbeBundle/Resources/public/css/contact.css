@@ -1,0 +1,68 @@
+.contact-page {
+    min-height: inherit;
+    position: relative;
+    color: #222;
+}
+
+.offleft {
+    left: -9999px;
+    position: absolute;
+    width: 999px;
+}
+.web-standard h2.head {
+    padding: 20px 0;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: url('../img/dotted-line.png') repeat-x 0 0;
+}
+.contact-page .half-width {
+    display: inline-block;
+    vertical-align: top;
+}
+.half-width {
+    width: 50%;
+}
+.rMarged10 {
+    margin-right: 10px;
+}
+.half-width h3.header-section {
+    color: #000;
+    font-weight: bold;
+    background-color: #a8a7a7;
+}
+h3.header-section {
+    color: #a8a7a7;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-top: 1px solid #c8c8c8;
+    border-bottom: 1px solid #c8c8c8;
+    line-height: 32px;
+    font-size: 14px;
+}
+.contact-page .contact-types {
+    background: url('../img/dotted-line.png') repeat-x bottom left;
+}
+.contact-page .contact-types .contact-type .contact-header {
+    background: url('../img/dotted-line.png') repeat-x left top;
+    text-decoration: none;
+    display: block;
+    height: 25px;
+    padding-top: 15px;
+    position: relative;
+}
+.contact-page .contact-types .contact-type .contact-info {
+    display: none;
+    padding: 0 15px 15px 20px;
+}
+.contact-page .contact-types .contact-type .contact-info .phone {
+    font-size: 13px;
+}
+.small {
+    font-size: 10px;
+}
+.lMarged10 {
+    margin-left: 10px;
+}

@@ -1,3 +1,7 @@
 nubbe_homepage:
     path:     /
     defaults: { _controller: NubbeBundle:Default:index }
+
+nubbe_contact:
+    path:     /contact
+    defaults: { _controller: NubbeBundle:Default:contact }
