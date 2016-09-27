@@ -15,4 +15,9 @@ class DefaultController extends Controller
     {
         return $this->render('NubbeBundle:Default:contact.html.twig');
     }
+
+    public function quiensomosAction()
+    {
+        return $this->render('NubbeBundle:Default:quiensomos.html.twig');
+    }
 }
