@@ -1,0 +1,17 @@
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/index.css') }}">
+{% endblock %}
+
+    <div class="nav">
+        <div class="leftlogo">
+            <a href="{{ path('nubbe_homepage') }}" class="logo">
+                <img id="nubbelogo" src="{{ asset('bundles/nubbe/img/logo.png') }}" alt="Nubbe">
+            </a>
+        </div>
+        <div class="rightlogo">
+            <a href="{{ path('fos_user_security_login') }}" class="">INICIAR SESIÓN</a>
+            <a href="{{ path('nubbe_contact') }}" class="">CONTACTO</a>
+            <a href="" class=""><i class="fa fa-shopping-bag"></i> CESTA</a>
+        </div>
+    </div>

@@ -2,28 +2,16 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/index.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/footer.css') }}">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 {% endblock %}
 
 {% block body %}
-    <div class="nav">
-        <div class="leftlogo">
-            <a href="{{ path('nubbe_homepage') }}" class="logo">
-                <img id="nubbelogo" src="{{ asset('bundles/nubbe/img/logo.png') }}" alt="Nubbe">
-            </a>
-        </div>
-        <div class="rightlogo">
-            <a href="{{ path('fos_user_security_login') }}" class="">INICIAR SESIÓN</a>
-            <a href="{{ path('nubbe_contact') }}" class="">CONTACTO</a>
-            <a href="" class=""><i class="fa fa-shopping-bag"></i> CESTA</a>
-        </div>
-    </div>
+
+    {% include 'NubbeBundle:Default:header.html.twig' %}
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 col-md-2 sidebar">
+            <div class="col-sm-1 col-md-1 sidebar">
                 {% include 'leftmenu.html.twig' %}
             </div>
             <div class="col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1 carousel">
@@ -68,17 +56,5 @@
         </div>
     </div>
 
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="follow">
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-twitter2.png') }}" alt="Twitter"/><span>Twitter</span></a>
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-tumblr.png') }}" alt="Tumblr"/><span>Tumblr</span></a>
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-linkedin.png') }}" alt="Linkedin"/><span>Linkedin</span></a>
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-viadeo.png') }}" alt="Viadeo"/><span>Viadeo</span></a>
-        </div>
-        <span class="copyright">© 2016 NUBBE S.L  Todos los derechos reservados<br>info@nubbe.es</span>
-    </footer>
-    <div class="scrollToTop"><a href="#"><img class="img-scroll" src="{{ asset('uploads/fiximg/fleche.jpg') }}"/></a></div>
+    {% include 'NubbeBundle:Default:footer.html.twig' %}
 {% endblock %}

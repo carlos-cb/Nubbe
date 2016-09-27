@@ -1,68 +1,50 @@
-.contact-page {
-    min-height: inherit;
-    position: relative;
-    color: #222;
-}
-
-.offleft {
-    left: -9999px;
-    position: absolute;
-    width: 999px;
+.web-standard{
+    text-align: center;
 }
 .web-standard h2.head {
     padding: 20px 0;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 22px;
     font-weight: 700;
     text-transform: uppercase;
-    background: url('../img/dotted-line.png') repeat-x 0 0;
+    background: url(../img/dotted-line.png) repeat-x 0 0;
 }
-.contact-page .half-width {
+.web-standard .head{
+    font-weight: bold;
+}
+.fancyGoldenSeperator {
+    width: 159px;
+    height: 19px;
+    display: block;
+    margin: 33px auto;
+    background: url(../img/fancyGoldenseperator.png);
+}
+.client-services-item-container {
+    margin: 0 2px;
+}
+.client-services-item:last-of-type {
+    margin-bottom: 0;
+    padding-bottom: 12px;
+}
+.client-services-service {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
     display: inline-block;
     vertical-align: top;
+    width: 66.66667%;
+    padding-bottom: 12px;
 }
-.half-width {
-    width: 50%;
-}
-.rMarged10 {
-    margin-right: 10px;
-}
-.half-width h3.header-section {
-    color: #000;
-    font-weight: bold;
-    background-color: #a8a7a7;
-}
-h3.header-section {
-    color: #a8a7a7;
-    font-weight: normal;
+.client-services-service-description {
+    margin-top: 40px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    border-top: 1px solid #c8c8c8;
-    border-bottom: 1px solid #c8c8c8;
-    line-height: 32px;
+    font-size: 15px;
+}
+.client-services-actions{
     font-size: 14px;
-}
-.contact-page .contact-types {
-    background: url('../img/dotted-line.png') repeat-x bottom left;
-}
-.contact-page .contact-types .contact-type .contact-header {
-    background: url('../img/dotted-line.png') repeat-x left top;
-    text-decoration: none;
-    display: block;
-    height: 25px;
-    padding-top: 15px;
-    position: relative;
-}
-.contact-page .contact-types .contact-type .contact-info {
-    display: none;
-    padding: 0 15px 15px 20px;
-}
-.contact-page .contact-types .contact-type .contact-info .phone {
-    font-size: 13px;
-}
-.small {
-    font-size: 10px;
-}
-.lMarged10 {
-    margin-left: 10px;
 }

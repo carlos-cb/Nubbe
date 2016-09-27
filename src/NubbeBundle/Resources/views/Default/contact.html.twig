@@ -2,183 +2,67 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/index.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/footer.css') }}">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/contact.css') }}">
 {% endblock %}
 
 {% block body %}
-    <div class="nav">
-        <div class="leftlogo">
-            <a href="{{ path('nubbe_homepage') }}" class="logo">
-                <img id="nubbelogo" src="{{ asset('bundles/nubbe/img/logo.png') }}" alt="Nubbe">
-            </a>
-        </div>
-        <div class="rightlogo">
-            <a href="{{ path('fos_user_security_login') }}" class="">INICIAR SESIÓN</a>
-            <a href="{{ path('nubbe_contact') }}" class="">CONTACTO</a>
-            <a href="" class=""><i class="fa fa-shopping-bag"></i> CESTA</a>
-        </div>
-    </div>
 
+    {% include 'NubbeBundle:Default:header.html.twig' %}
 
     <div class="container-fluid">
         <div class="row">
-             <div class="col-sm-2 col-md-2 sidebar">
+             <div class="col-sm-1 col-md-1 sidebar">
                  {% include 'leftmenu.html.twig' %}
-              </div>
-            <div class="col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1">
+             </div>
+             <div class="col-sm-8 col-sm-offset-1 col-md-8 col-md-offset-1 web-standard">
+                 <h3 class="head">ATENCIÓN AL CLIENTE</h3>
+                 <p>Nubbe España</p>
+                 <div class="fancyGoldenSeperator"></div>
+                 <div class="client-services-item-container row">
+                     <div class="client-services-item col-md-4 col-md-offset-1">
 
-    <section class="contact-page" data-controller="store/contact-controller" style="min-height: 546px;">
-        <h1 class="offleft">ATENCIÓN AL CLIENTE</h1>
-        <header>
-            <h2 class="head">ATENCIÓN AL CLIENTE</h2>
-        </header>
-        <div class="half-width">
-            <div class="rMarged10">
-                <h3 class="header-section">ONLINE</h3>
-                <ul class="contact-types">
-                    <li class="contact-type _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-phone"></span>
-                            <span class="contact-title"><strong>TELÉFONO</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-phone">
-                                <li class="phone">900 814 900</li>
-                                <li class="phone"></li>
-                                <li class="small">De lunes a viernes, de 8:30 a 20:00<br>Sábado, de 10:00 a 16:00<br></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="contact-type  _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-email"></span>
-                            <span class="contact-title"><strong>CORREO ELECTRÓNICO</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-email">
-                                <li class="contact-description"></li>
-                                <li>
-                                    <span class="action">
-                                        <a href="https://www.zara.com/es/es/contact/online">
-                                            <button class="button-primary button-medium">
-                                                <span>ENVIAR</span>
-                                            </button>
-                                        </a>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="contact-type  _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-chat"></span>
-                            <span class="contact-title"><strong>CHAT</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-chat _chatContact-online">
-                                <li class="small">De lunes a viernes, de 8:30 a 20:00<br>Sábado, de 10:00 a 16:00<br></li>
-                                <li>
-                                    <span class="action">
-                                        <a class="button-primary button-medium _chat-action _chatBtn">
-                                            <span>ACCEDER</span>
-                                        </a>
-                                    </span>
-                                    <span class="small _chatDisabledMsg" style="display: none;">No disponible en este momento.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="contact-type  _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-social"></span>
-                            <span class="contact-title"><strong>REDES SOCIALES</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-social">
-                                <li class="small">Facebook: <a href="http://www.facebook.com/ZARACare" target="_blank">ZARACare</a>
-                                    <br>Twitter: <a href="http://twitter.com/ZARA_Care" target="_blank">@Zara_care</a><br>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="half-width">
-            <div class="lMarged10">
-                <h3 class="header-section">TIENDAS</h3>
-                <ul class="contact-types">
-                    <li class="contact-type _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-phone"></span>
-                            <span class="contact-title"><strong>TELÉFONO</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-phone">
-                                <li class="phone">900 814 676</li>
-                                <li class="phone"></li>
-                                <li class="small">De lunes a viernes, de 10:00 a 20:00<br>Sábado, de 10:00 a 16:00<br></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="contact-type  _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-email"></span>
-                            <span class="contact-title"><strong>CORREO ELECTRÓNICO</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-email">
-                                <li class="contact-description"></li>
-                                <li>
-                                    <span class="action">
-                                        <a href="https://www.zara.com/es/es/contact/physical-stores">
-                                            <button class="button-primary button-medium"><span>ENVIAR</span></button>
-                                        </a>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="contact-type  _contact">
-                        <a class="contact-header _header">
-                            <span class="contact-icon icon icon icon-contact-social"></span>
-                            <span class="contact-title"><strong>REDES SOCIALES</strong></span>
-                        </a>
-                        <div class="contact-info _content">
-                            <ul class="contact-type-social">
-                                <li class="small">Facebook: <a href="http://www.facebook.com/ZARACare" target="_blank">ZARACare</a>
-                                    <br>
-                                    Twitter: <a href="http://twitter.com/ZARA_Care" target="_blank">@Zara_care</a><br>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="legal-message"></div>
-    </section>
+                         <div class="client-services-service">
+                             <div class="client-services-service-description">
+                                 <span class="fa-stack fa-3x">
+                                  <i class="fa fa-square-o fa-stack-2x"></i>
+                                  <strong class="fa-stack-1x">1</strong>
+                                </span><br><br>
+                                 Avenida de La Albufera, 39, 28947 Madrid<br>
+                                 TEL: 688 088 888<br>
+                                 Email: info@nubbe.es
+                             </div>
+                         </div>
+                         <div class="client-services-actions">
+                         <span class="button-dropdown button-dropdown-inverse" data-buttons="dropdown">
+                             <a href="#" class="button button-inverse">ENVIAR</a>
+                         </span>
+                         </div>
+                     </div>
+                     <div class="client-services-item col-md-4 col-md-offset-2">
+                         <div class="client-services-service">
+                             <div class="client-services-service-description">
+                                <span class="fa-stack fa-3x">
+                                  <i class="fa fa-square-o fa-stack-2x"></i>
+                                  <strong class="fa-stack-1x">2</strong>
+                                </span><br><br>
+                                 Avenida de La Albufera, 39, 28947 Madrid<br>
+                                 TEL: 688 088 888<br>
+                                 Email: info@nubbe.es
+                             </div>
+                         </div>
+                         <div class="client-services-actions">
+                         <span class="button-dropdown button-dropdown-inverse" data-buttons="dropdown">
+                             <a href="#" class="button button-inverse">ENVIAR</a>
+                         </span>
+                         </div>
+                     </div>
 
-            </div>
+                 </div>
+             </div>
 
+         </div>
     </div>
 
-    </div>
-
-
-
-    <!-- Footer -->
-    <footer>
-        <div class="follow">
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-twitter2.png') }}" alt="Twitter"/><span>Twitter</span></a>
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-tumblr.png') }}" alt="Tumblr"/><span>Tumblr</span></a>
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-linkedin.png') }}" alt="Linkedin"/><span>Linkedin</span></a>
-            <a class="lien" href="" target="_blank"><img src="{{ asset('uploads/fiximg/icon-viadeo.png') }}" alt="Viadeo"/><span>Viadeo</span></a>
-        </div>
-        <span class="copyright">© 2016 NUBBE S.L  Todos los derechos reservados<br>info@nubbe.es</span>
-    </footer>
-    <div class="scrollToTop"><a href="#"><img class="img-scroll" src="{{ asset('uploads/fiximg/fleche.jpg') }}"/></a></div>
+    {% include 'NubbeBundle:Default:footer.html.twig' %}
 {% endblock %}
