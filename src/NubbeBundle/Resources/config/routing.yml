@@ -9,3 +9,31 @@ nubbe_contact:
 nubbe_quiensomos:
     path:     /quiensomos
     defaults: { _controller: NubbeBundle:Default:quiensomos }
+
+nubbe_productlist:
+    path:     /productList
+    defaults: { _controller: NubbeBundle:Default:productlist }
+
+nubbe_productdetail:
+    path:     /productdetail
+    defaults: { _controller: NubbeBundle:Default:productdetail }
+
+nubbe_productdetail22:
+    path:     /productdetail22
+    defaults: { _controller: NubbeBundle:Default:productdetail22 }
+
+nubbe_cart:
+    path:     /cart
+    defaults: { _controller: NubbeBundle:Default:cart }
+
+nubbe_guestinfo:
+    path:     /guestinfo
+    defaults: { _controller: NubbeBundle:Default:guestinfo }
+
+nubbe_pedido:
+    path:     /pedido
+    defaults: { _controller: NubbeBundle:Default:pedido }
+
+nubbe_productlistclient:
+    path:     /productlistclient
+    defaults: { _controller: NubbeBundle:Default:productlistclient }

@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/cart.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+    {% include 'NubbeBundle:Default:header.html.twig' %}
+
+    <section id="main" class="content-main" role="main">
+
+        <section id="shop-cart-content" data-controller="shop/shop-cart-controller">
+            <form action="//www.zara.com/es/es/shop/shipping/251514673" method="POST" class="_shopCartForm">
+                <table class="order-table">
+                    <thead>
+                    <tr class="thead"><th>PRODUCTO</th>
+                        <th class="description">DESCRIPCIÓN</th>
+                        <th>COLOR</th>
+                        <th>TALLA</th>
+                        <th class="quantity">UNIDADES</th>
+                        <th class="price" id="priceHeader">IMPORTE</th>
+                        <th class="delete">ELIMINAR</th>
+                    </tr>
+                    </thead>
+                    <tbody id="shangpin">
+
+                        <tr id="order-item" class="order-item  _order-item-919231977">
+                            <td class="_detail">
+                                <a href="" target="_self">
+                                    <img src="{{ asset('uploads/fotos/2.jpg') }}" width="135px;">
+                                </a>
+                            </td>
+                            <td class="description _detail">
+                                <a href="" target="_self">
+                                    <span>productNameEs</span><br><br>Ref.&nbsp;6602/002
+                                </a>
+                            </td>
+                            <td class="color"> AZUL </td>
+                            <td class="size">
+                                M
+                            </td>
+                            <td class="quantity">
+                                <span class="_quantity" id="_quantity">1</span>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
+                                </span>
+                            </td>
+                            <td class="price"><span id="heji"></span>19.90 EUR</td>
+                            <td class="delete">
+                                <i style="float: right;padding-right: 10px; margin-top: 14px; font-size: 16px;" class="fa fa-trash-o" aria-hidden="true"></i>
+                                <a class="button button-large button-plain button-borderless" href="">
+                                    <i style="float: right;padding-right: 10px; font-size: 15px;" class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="6" class="order-items-total" scope="row">Total de productos:</th>
+                        <td class="order-items-total" headers="priceHeader"><span id="totalprice"></span>19.90 EUR</td>
+                    </tr>
+                    <tr>
+                        <th class="order-delivery-costs" colspan="6" scope="row">Gastos de envío estimados:</th>
+                        <td class="order-delivery-costs" headers="priceHeader">0,00 EUR</td>
+                    </tr>
+                    <tr class="total">
+                        <th colspan="6" scope="row"><strong>Total:</strong></th>
+                        <td class="order-total" headers="priceHeader"><span id="total"></span>19.90 EUR</td>
+                    </tr>
+                    <tr class="order-vat-costs">
+                        <th colspan="6" scope="row">
+                            <span class="offleft">Impuestos</span>
+                        </th>
+                        <td headers="priceHeader"><em>* IVA incluido</em></td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div>
+                    <p>Devoluciones y reembolso: Tiene una semana para cancelar o devolver tu pedido.
+                        <br>Antes de todo, póngase en contacto con nosotros.
+                        <br>Lee más sobre nuestra política de devoluciones y reembolso.</p>
+                </div>
+                <div class="anniu">
+                    <button class="button-secondary button-big FL _continue-shopping-btn" type="button"><span>SEGUIR COMPRANDO</span></button>
+                    <button class="button-primary button-big FR" onclick="window.location.href='/guestinfo'" type="button"><span>Continuar</span></button>
+                </div>
+            </form>
+        </section>
+    </section>
+
+    {% include 'NubbeBundle:Default:footer.html.twig' %}
+{% endblock %}

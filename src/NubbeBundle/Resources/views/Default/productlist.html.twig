@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/productlist.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    {% include 'NubbeBundle:Default:header.html.twig' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-1 col-md-1 sidebar">
+                {% include 'leftmenu.html.twig' %}
+            </div>
+            <div class="col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1 imglist">
+                <div class='col-sm-6 col-md-4 col-lg-3'>
+                    <a href="{{ path('nubbe_productdetail') }}">
+                        <img src="{{ asset('uploads/fotos/1.jpg') }}" height="320px">
+                    </a>
+                    <div class="product-info">
+                        <a class="" href="">product.productNameEs</a>
+                        <div class="price _product-price"><span>39,95 EUR</span></div>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-md-4 col-lg-3'>
+                    <a href="{{ path('nubbe_productdetail') }}">
+                        <img src="{{ asset('uploads/fotos/2.jpg') }}" height="320px">
+                    </a>
+                    <div class="product-info">
+                        <a class="" href="">product.productNameEs</a>
+                        <div class="price _product-price"><span>39,95 EUR</span></div>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-md-4 col-lg-3'>
+                    <a href="{{ path('nubbe_productdetail') }}">
+                        <img src="{{ asset('uploads/fotos/3.jpg') }}" height="320px">
+                    </a>
+                    <div class="product-info">
+                        <a class="" href="">product.productNameEs</a>
+                        <div class="price _product-price"><span>39,95 EUR</span></div>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-md-4 col-lg-3'>
+                    <a href="{{ path('nubbe_productdetail') }}">
+                        <img src="{{ asset('uploads/fotos/4.jpg') }}" height="320px">
+                    </a>
+                    <div class="product-info">
+                        <a class="" href="">product.productNameEs</a>
+                        <div class="price _product-price"><span>39,95 EUR</span></div>
+                    </div>
+                </div>
+                <div class='col-sm-6 col-md-4 col-lg-3'>
+                    <a href="{{ path('nubbe_productdetail') }}">
+                        <img src="{{ asset('uploads/fotos/5.jpg') }}" height="320px">
+                    </a>
+                    <div class="product-info">
+                        <a class="" href="">product.productNameEs</a>
+                        <div class="price _product-price"><span>39,95 EUR</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include 'NubbeBundle:Default:footer.html.twig' %}
+{% endblock %}

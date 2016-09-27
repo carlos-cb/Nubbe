@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/nubbe/css/cart.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+    {% include 'NubbeBundle:Default:header.html.twig' %}
+
+    <section id="main" class="content-main" role="main">
+
+        <h2>Lista de Productos</h2>
+        <section id="shop-cart-content" data-controller="shop/shop-cart-controller">
+            <form action="//www.zara.com/es/es/shop/shipping/251514673" method="POST" class="_shopCartForm">
+                <table class="order-table">
+                    <thead>
+                    <tr class="thead"><th>PRODUCTO</th>
+                        <th class="description">DESCRIPCIÓN</th>
+                        <th>COLOR</th>
+                        <th>TALLA</th>
+                        <th class="quantity">UNIDADES</th>
+                    </tr>
+                    </thead>
+                    <tbody id="shangpin">
+
+                        <tr id="order-item" class="order-item  _order-item-919231977">
+                            <td class="_detail">
+                                <a href="" target="_self">
+                                    <img src="{{ asset('uploads/fotos/lan.jpg') }}" width="135px;">
+                                </a>
+                            </td>
+                            <td class="description _detail">
+                                <a href="" target="_self">
+                                    <span>productNameEs</span><br>Ref.&nbsp;7545/311
+                                </a>
+                            </td>
+                            <td class="color">AZUL</td>
+                            <td class="size">
+                                S
+                            </td>
+                            <td class="quantity">
+                                <span class="_quantity" id="_unit">1 </span>
+                            </td>
+                        </tr>
+                        <tr id="order-item" class="order-item  _order-item-919231977">
+                            <td class="_detail">
+                                <a href="" target="_self">
+                                    <img src="{{ asset('uploads/fotos/hong.jpg') }}" width="135px;">
+                                </a>
+                            </td>
+                            <td class="description _detail">
+                                <a href="" target="_self">
+                                    <span>productNameEs</span><br>Ref.&nbsp;7545/311
+                                </a>
+                            </td>
+                            <td class="color">ROJO</td>
+                            <td class="size">
+                                S
+                            </td>
+                            <td class="quantity">
+                                <span class="_quantity" id="_unit">1 </span>
+                            </td>
+                        </tr>
+                        <tr id="order-item" class="order-item  _order-item-919231977">
+                            <td class="_detail">
+                                <a href="" target="_self">
+                                    <img src="{{ asset('uploads/fotos/bai.jpg') }}" width="135px;">
+                                </a>
+                            </td>
+                            <td class="description _detail">
+                                <a href="" target="_self">
+                                    <span>productNameEs</span><br>Ref.&nbsp;7545/311
+                                </a>
+                            </td>
+                            <td class="color">BLANCO</td>
+                            <td class="size">
+                                S
+                            </td>
+                            <td class="quantity">
+                                <span class="_quantity" id="_unit">1 </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <div class="anniu">
+                    <button class="button-secondary button-big FL _continue-shopping-btn"  style="width: 200px;" onclick="window.location.href='{{ path('nubbe_pedido') }}'" type="button"><span>VOLVER</span></button>
+                </div>
+            </form>
+        </section>
+    </section>
+
+    {% include 'NubbeBundle:Default:footer.html.twig' %}
+{% endblock %}
