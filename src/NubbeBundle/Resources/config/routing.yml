@@ -2,6 +2,10 @@ nubbe_homepage:
     path:     /
     defaults: { _controller: NubbeBundle:Default:index }
 
+nubbe_homepage_admin:
+    path:     /admin
+    defaults: { _controller: NubbeBundle:Default:backEnd }
+
 nubbe_contact:
     path:     /contact
     defaults: { _controller: NubbeBundle:Default:contact }
@@ -37,3 +41,7 @@ nubbe_pedido:
 nubbe_productlistclient:
     path:     /productlistclient
     defaults: { _controller: NubbeBundle:Default:productlistclient }
+
+nubbe_login:
+    path:     /nubbelogin
+    defaults: { _controller: NubbeBundle:Default:login }

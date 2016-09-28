@@ -55,4 +55,14 @@ class DefaultController extends Controller
     {
         return $this->render('NubbeBundle:Default:productlistclient.html.twig');
     }
+
+    public function backEndAction()
+    {
+        return $this->render('NubbeBundle:BackEnd:overview.html.twig');
+    }
+
+    public function loginAction()
+    {
+        return $this->render('NubbeBundle:Default:login.html.twig');
+    }
 }
