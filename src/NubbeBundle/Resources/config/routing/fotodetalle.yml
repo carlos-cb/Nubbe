@@ -1,0 +1,28 @@
+fotodetalle_index:
+    path:     /
+    defaults: { _controller: "NubbeBundle:Fotodetalle:index" }
+    methods:  GET
+
+fotodetalle_show:
+    path:     /{id}/show
+    defaults: { _controller: "NubbeBundle:Fotodetalle:show" }
+    methods:  GET
+
+fotodetalle_new:
+    path:     /{id}/new
+    defaults: { _controller: "NubbeBundle:Fotodetalle:new" }
+    methods:  [GET, POST]
+
+fotodetalle_edit:
+    path:     /{product}/{id}/edit
+    defaults: { _controller: "NubbeBundle:Fotodetalle:edit" }
+    methods:  [GET, POST]
+
+fotodetalle_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NubbeBundle:Fotodetalle:delete" }
+    methods:  DELETE
+
+fotodetalle_remove:
+    path:     /{id}/remove
+    defaults: { _controller: "NubbeBundle:Fotodetalle:remove" }

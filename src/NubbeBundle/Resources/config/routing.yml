@@ -1,3 +1,43 @@
+nubbe_user:
+    resource: "@NubbeBundle/Resources/config/routing/user.yml"
+    prefix:   /admin/user
+
+nubbe_category:
+    resource: "@NubbeBundle/Resources/config/routing/category.yml"
+    prefix:   /admin/category
+
+nubbe_color:
+    resource: "@NubbeBundle/Resources/config/routing/color.yml"
+    prefix:   /admin/color
+
+nubbe_fotodetalle:
+    resource: "@NubbeBundle/Resources/config/routing/fotodetalle.yml"
+    prefix:   /admin/fotodetalle
+
+nubbe_product:
+    resource: "@NubbeBundle/Resources/config/routing/product.yml"
+    prefix:   /admin/product
+
+nubbe_size:
+    resource: "@NubbeBundle/Resources/config/routing/size.yml"
+    prefix:   /admin/size
+
+nubbe_stock:
+    resource: "@NubbeBundle/Resources/config/routing/stock.yml"
+    prefix:   /admin/stock
+
+nubbe_orderinfo:
+    resource: "@NubbeBundle/Resources/config/routing/orderinfo.yml"
+    prefix:   /admin/orderinfo
+
+nubbe_orderitem:
+    resource: "@NubbeBundle/Resources/config/routing/orderitem.yml"
+    prefix:   /admin/orderitem
+
+celina_select:
+    resource: "@NubbeBundle/Resources/config/routing/select.yml"
+    prefix:   /admin/select
+
 nubbe_homepage:
     path:     /
     defaults: { _controller: NubbeBundle:Default:index }

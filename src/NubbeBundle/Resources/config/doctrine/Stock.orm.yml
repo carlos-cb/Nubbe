@@ -1,0 +1,14 @@
+NubbeBundle\Entity\Stock:
+    type: entity
+    table: null
+    repositoryClass: NubbeBundle\Repository\StockRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        quantity:
+            type: integer
+    lifecycleCallbacks: {  }

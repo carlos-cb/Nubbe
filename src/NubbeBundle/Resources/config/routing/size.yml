@@ -1,0 +1,32 @@
+size_index:
+    path:     /
+    defaults: { _controller: "NubbeBundle:Size:index" }
+    methods:  GET
+
+size_show:
+    path:     /{id}/show
+    defaults: { _controller: "NubbeBundle:Size:show" }
+    methods:  GET
+
+size_new:
+    path:     /new
+    defaults: { _controller: "NubbeBundle:Size:new" }
+    methods:  [GET, POST]
+
+size_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NubbeBundle:Size:edit" }
+    methods:  [GET, POST]
+
+size_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NubbeBundle:Size:delete" }
+    methods:  DELETE
+
+size_add:
+    path:     /{product}/{sizename}/addSize
+    defaults: { _controller: "NubbeBundle:Size:addSize" }
+
+size_min:
+    path:     /{product}/{size}/minSize
+    defaults: { _controller: "NubbeBundle:Size:minSize" }

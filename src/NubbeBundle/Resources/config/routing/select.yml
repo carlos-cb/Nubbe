@@ -1,0 +1,11 @@
+select_new:
+    path:     /new
+    defaults: { _controller: "NubbeBundle:Select:selectNew" }
+
+add_new:
+    path:     /addnew
+    defaults: { _controller: "NubbeBundle:Select:addNew" }
+
+delete_new:
+    path:     /deletenew/{id}
+    defaults: { _controller: "NubbeBundle:Select:deleteNew" }

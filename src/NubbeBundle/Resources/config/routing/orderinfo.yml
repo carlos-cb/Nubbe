@@ -1,0 +1,36 @@
+orderinfo_index:
+    path:     /
+    defaults: { _controller: "NubbeBundle:OrderInfo:index" }
+    methods:  GET
+
+orderinfo_show:
+    path:     /{id}/show
+    defaults: { _controller: "NubbeBundle:OrderInfo:show" }
+    methods:  GET
+
+orderinfo_new:
+    path:     /new
+    defaults: { _controller: "NubbeBundle:OrderInfo:new" }
+    methods:  [GET, POST]
+
+orderinfo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NubbeBundle:OrderInfo:edit" }
+    methods:  [GET, POST]
+
+orderinfo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NubbeBundle:OrderInfo:delete" }
+    methods:  DELETE
+
+orderinfo_delivered:
+    path:     /delivered
+    defaults: { _controller: "NubbeBundle:OrderInfo:delivered" }
+
+orderinfo_success:
+    path:     /{id}/success
+    defaults: { _controller: "NubbeBundle:OrderInfo:success" }
+
+orderinfo_cancelled:
+    path:     /{id}/cancelled
+    defaults: { _controller: "NubbeBundle:OrderInfo:cancelled" }

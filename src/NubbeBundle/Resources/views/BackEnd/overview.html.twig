@@ -2,16 +2,16 @@
 
 {% block menuslide %}
     <ul class="nav nav-sidebar">
-        <li class="active"><a href="">总览  <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">报告</a></li>
-        <li><a href="#">分析</a></li>
+        <li class="active"><a href="{{ path('nubbe_homepage_admin') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> &nbsp;Visión Genenal  <span class="sr-only">(current)</span></a></li>
+        <li><a href="#"><i class="fa fa-info" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;&nbsp;Informe</a></li>
+        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbsp; Análisis</a></li>
     </ul>
     <ul class="nav nav-sidebar">
-        <li><a href="">用户管理</a></li>
-        <li><a href="">分类管理</a></li>
-        <li><a href="">产品管理</a></li>
-        <li><a href="">新品选择</a></li>
-        <li><a href="">订单管理</a></li>
+        <li><a href="{{ path('user_index') }}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Usuarios</a></li>
+        <li><a href="{{ path('category_index') }}"><i class="fa fa-columns" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Categorías</a></li>
+        <li><a href="{{ path('product_index') }}"><i class="fa fa-female" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Gestión de Productos</a></li>
+        <li><a href="{{ path('select_new') }}"><i class="fa fa-heart" aria-hidden="true"></i> &nbsp;&nbsp;Selección Nuevos</a></li>
+        <li><a href="{{ path('orderinfo_index') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> &nbsp;&nbsp;Gestión de Pedidos</a></li>
     </ul>
 {% endblock %}
 
@@ -122,20 +122,6 @@
                 <td>semper</td>
                 <td>porta</td>
                 <td>Mauris</td>
-            </tr>
-            <tr>
-                <td>1,010</td>
-                <td>massa</td>
-                <td>Vestibulum</td>
-                <td>lacinia</td>
-                <td>arcu</td>
-            </tr>
-            <tr>
-                <td>1,011</td>
-                <td>eget</td>
-                <td>nulla</td>
-                <td>Class</td>
-                <td>aptent</td>
             </tr>
             </tbody>
         </table>
