@@ -58,7 +58,25 @@ class DefaultController extends Controller
 
     public function backEndAction()
     {
-        return $this->render('NubbeBundle:BackEnd:overview.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $numUser = $em->getRepository('NubbeBundle:User')->createQueryBuilder('a')->select('COUNT(a.id)')->getQuery()->getSingleScalarResult();
+        $numOrder = $em->getRepository('NubbeBundle:OrderInfo')->createQueryBuilder('b')->select('COUNT(b.id)')->getQuery()->getSingleScalarResult();
+        $numProduct = $em->getRepository('NubbeBundle:Product')->createQueryBuilder('c')->select('COUNT(c.id)')->getQuery()->getSingleScalarResult();
+
+        $queryU = $em->createQuery("SELECT p FROM NubbeBundle:User p WHERE 1=1 order by p.id DESC")->setMaxResults(10);
+        $users = $queryU->getResult();
+
+        $queryO = $em->createQuery("SELECT t FROM NubbeBundle:OrderInfo t WHERE 1=1 order by t.id DESC")->setMaxResults(10);
+        $orders = $queryO->getResult();
+
+        return $this->render('NubbeBundle:BackEnd:overview.html.twig', array(
+            'numUser' => $numUser,
+            'numOrder' => $numOrder,
+            'numProduct' => $numProduct,
+            'users' => $users,
+            'orders' => $orders
+        ));
     }
 
     public function loginAction()

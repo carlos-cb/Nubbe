@@ -24,6 +24,7 @@ class FotodetalleType extends AbstractType
                 'choices' => $this->traitChoices,
                 'class' => 'NubbeBundle:Color',
                 'property' => 'colorNameEs',
+                'required' => true,
             ))
             ->add('fotodetalle', FileType::class, array(
                 'data_class' => null,

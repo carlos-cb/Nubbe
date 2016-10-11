@@ -53,7 +53,7 @@ class FotodetalleController extends Controller
             $em->persist($fotodetalle);
             $em->flush();
 
-            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            return $this->redirect($this->generateUrl('product_show', array('id' => $product->getId())). '#fotodetalles');
         }
 
         return $this->render('fotodetalle/new.html.twig', array(
@@ -106,7 +106,7 @@ class FotodetalleController extends Controller
             $em->persist($fotodetalle);
             $em->flush();
 
-            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+            return $this->redirect($this->generateUrl('product_show', array('id' => $product->getId())). '#fotodetalles');
         }
 
         return $this->render('fotodetalle/edit.html.twig', array(
@@ -175,6 +175,6 @@ class FotodetalleController extends Controller
         $em->remove($fotodetalle);
         $em->flush();
 
-        return $this->redirectToRoute('product_show', array('id' => $product->getId()));
+        return $this->redirect($this->generateUrl('product_show', array('id' => $product->getId())). '#fotodetalles');
     }
 }

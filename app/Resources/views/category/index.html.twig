@@ -18,6 +18,12 @@
 {% block content %}
     <h1 class="sub-header">Gestión de Categorías</h1>
     <br>
+    <ul>
+        <li>
+            <a href="{{ path('category_new') }}" class="button button-rounded button-inverse">Crear Nuevo</a>
+        </li>
+    </ul>
+    <br>
     <table class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
@@ -46,10 +52,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('category_new') }}" class="button button-rounded button-inverse">Crear Nuevo</a>
-        </li>
-    </ul>
 {% endblock %}

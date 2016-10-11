@@ -32,9 +32,9 @@
         </tr>
         <tr>
             <td height="100">{{ orderInfo.id }}</td>
-            <td>{{ orderInfo.goodsFee }}</td>
-            <td>{{ orderInfo.shipFee }}</td>
-            <td>{{ orderInfo.totalPrice }}</td>
+            <td>{{ orderInfo.goodsFee|number_format(2, '.', ',') }} €</td>
+            <td>{{ orderInfo.shipFee|number_format(2, '.', ',') }} €</td>
+            <td>{{ orderInfo.totalPrice|number_format(2, '.', ',') }} €</td>
             <td>{{ orderInfo.payType }}</td>
 
             <td>{% if orderInfo.orderDate %}{{ orderInfo.orderDate|date('Y-m-d H:i:s') }}{% endif %}</td>
@@ -79,9 +79,9 @@
                 <td>{{ orderItem.product.productNameEs }}</td>
                 <td>{{ orderItem.colorName }}</td>
                 <td>{{ orderItem.quantity }}</td>
-                <td>{{ orderItem.product.price }}</td>
+                <td>{{ orderItem.product.price|number_format(2, '.', ',') }} €</td>
                 {% set foo = orderItem.quantity * orderItem.product.price %}
-                <td>{{ foo }}</td>
+                <td>{{ foo|number_format(2, '.', ',') }} €</td>
             </tr>
         {% endfor %}
         </tbody>

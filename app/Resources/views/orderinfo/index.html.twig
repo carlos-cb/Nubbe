@@ -60,7 +60,7 @@
                 {% if orderInfo.state == 'fallado' %}button-caution{% endif %}">{{ orderInfo.state|upper }}</button>
                 </td>
                 <td>{{ orderInfo.receiverName }}</td>
-                <td>{{ orderInfo.totalPrice }}</td>
+                <td>{{ orderInfo.totalPrice|number_format(2, '.', ',') }} €</td>
                 <td>{{ orderInfo.payType }}</td>
                 <td>{% if orderInfo.orderDate %}{{ orderInfo.orderDate|date('Y-m-d H:i') }}{% endif %}</td>
                 <td>{% if orderInfo.isConfirmed %}Sí{% else %}No{% endif %}</td>
