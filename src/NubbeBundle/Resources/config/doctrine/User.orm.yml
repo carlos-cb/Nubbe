@@ -8,4 +8,12 @@ NubbeBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+    oneToOne:
+        cart:
+            targetEntity: Cart
+            mappedBy: user
+    oneToMany:
+        orderInfos:
+            targetEntity: OrderInfo
+            mappedBy: user
     lifecycleCallbacks: {  }

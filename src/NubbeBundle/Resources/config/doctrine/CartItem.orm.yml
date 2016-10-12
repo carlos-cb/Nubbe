@@ -16,6 +16,9 @@ NubbeBundle\Entity\CartItem:
         colorName:
             type: string
             length: 255
+        sizeName:
+            type: string
+            length: 255
         foto:
             type: string
             length: 255

@@ -10,7 +10,8 @@
     {% include 'NubbeBundle:Default:header.html.twig' %}
 
     <section id="main" class="content-main" role="main">
-        <h2>Mis pedidos</h2>
+        <h2>Mis Pedidos</h2>
+        <br>
         <section id="shop-cart-content" data-controller="shop/shop-cart-controller">
             <form action="//www.zara.com/es/es/shop/shipping/251514673" method="POST" class="_shopCartForm">
                 <table class="order-table">
@@ -24,37 +25,18 @@
                     </tr>
                     </thead>
                     <tbody id="shangpin">
-
+                    {% for orderInfo in orderInfos %}
                         <tr id="order-item" class="order-item  _order-item-919231977">
-                            <td class="_detail">11002</td>
-                            <td class="description _detail">2016-09-13</td>
-                            <td class="color">	BEING PREPARED</td>
-                            <td>19.90 EUR</td>
-                            <td>CZ3009921300</td>
+                            <td class="_detail" style="height: 50px">{{ orderInfo.id }}</td>
+                            <td class="description _detail">{% if orderInfo.orderDate %}{{ orderInfo.orderDate|date('Y-m-d') }}{% endif %}</td>
+                            <td class="color">{{ orderInfo.state }}</td>
+                            <td>{{ orderInfo.totalPrice }} EUR</td>
+                            <td>{% if orderInfo.envio %}{{ orderInfo.envio }}{% endif %}</td>
                             <td>
-                                <ul>
-                                    <li>
-                                        <a href="">Ver lista de productos</a>
-                                    </li>
-                                </ul>
+                                <a href="{{ path('nubbe_productlistclient', { 'orderInfo': orderInfo.id }) }}">Ver lista de productos</a>
                             </td>
                         </tr>
-
-                        <tr id="order-item" class="order-item  _order-item-919231977">
-                            <td class="_detail">11003</td>
-                            <td class="description _detail">2016-09-15</td>
-                            <td class="color">	BEING PREPARED</td>
-                            <td>118.00 EUR</td>
-                            <td>CZ3009921301</td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('nubbe_productlistclient') }}">Ver lista de productos</a>
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-
+                    {% endfor %}
                     </tbody>
                 </table>
             </form>

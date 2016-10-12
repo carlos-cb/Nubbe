@@ -1,0 +1,15 @@
+nubbe_productlist:
+    path:     /productList/{category}
+    defaults: { _controller: NubbeBundle:Default:productlist }
+
+nubbe_productlist_new:
+    path:     /productListNew
+    defaults: { _controller: NubbeBundle:Default:productlistNew }
+
+nubbe_productdetail:
+    path:     /productdetail/{product}
+    defaults: { _controller: NubbeBundle:Default:productdetail }
+
+nubbe_productdetail22:
+    path:     /productdetail22
+    defaults: { _controller: NubbeBundle:Default:productdetail22 }

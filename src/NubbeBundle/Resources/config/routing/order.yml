@@ -1,0 +1,23 @@
+nubbe_cart:
+    path:     /cart
+    defaults: { _controller: NubbeBundle:Default:cart }
+
+cart_update:
+    path:     /cart/updateNum
+    defaults: { _controller: NubbeBundle:Default:ajaxUpdate }
+
+cart_cartitem_delete:
+    path:     /{id}/cartdelete
+    defaults: { _controller: NubbeBundle:Default:cartdelete }
+
+nubbe_guestinfo:
+    path:     /guestinfo
+    defaults: { _controller: NubbeBundle:Default:guestinfo }
+
+nubbe_pedido:
+    path:     /pedido
+    defaults: { _controller: NubbeBundle:Default:pedido }
+
+nubbe_productlistclient:
+    path:     /pedido/productlistclient/{orderInfo}
+    defaults: { _controller: NubbeBundle:Default:productlistclient }

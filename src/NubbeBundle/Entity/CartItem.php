@@ -196,4 +196,32 @@ class CartItem
     public function __toString() {
         return strval($this->id);
     }
+    /**
+     * @var string
+     */
+    private $sizeName;
+
+
+    /**
+     * Set sizeName
+     *
+     * @param string $sizeName
+     * @return CartItem
+     */
+    public function setSizeName($sizeName)
+    {
+        $this->sizeName = $sizeName;
+
+        return $this;
+    }
+
+    /**
+     * Get sizeName
+     *
+     * @return string 
+     */
+    public function getSizeName()
+    {
+        return $this->sizeName;
+    }
 }
