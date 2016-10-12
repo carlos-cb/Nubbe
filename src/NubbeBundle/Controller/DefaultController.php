@@ -81,26 +81,22 @@ class DefaultController extends Controller
         ));
     }
 
-    public function productdetailAction(Product $product)
+    public function productdetailAction(Product $product, $colorId)
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
         $userNow = $this->getUser();
 
         $colors = $product->getColors();
-        $color = $colors[0];
+        $color = $colors[$colorId-1];
         
         return $this->render('NubbeBundle:Default:productdetail.html.twig', array(
             'product' => $product,
             'categories' => $categories,
             'color' => $color,
             'userNow' => $userNow,
+            'colorId' => $colorId,
         ));
-    }
-
-    public function productdetail22Action()
-    {
-        return $this->render('NubbeBundle:Default:productdetail22.html.twig');
     }
 
     public function cartAction()

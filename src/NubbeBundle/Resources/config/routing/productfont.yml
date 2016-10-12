@@ -7,9 +7,5 @@ nubbe_productlist_new:
     defaults: { _controller: NubbeBundle:Default:productlistNew }
 
 nubbe_productdetail:
-    path:     /productdetail/{product}
+    path:     /productdetail/{product}/{colorId}
     defaults: { _controller: NubbeBundle:Default:productdetail }
-
-nubbe_productdetail22:
-    path:     /productdetail22
-    defaults: { _controller: NubbeBundle:Default:productdetail22 }

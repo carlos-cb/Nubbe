@@ -31,7 +31,7 @@
 
             <div class="col-sm-4 col-md-4 col-lg-4 purchase-column">
                 <section class="product-detail-purchase" data-module="productDetail, productDetailScrollSpy">
-                    <h1 class="product-name product-detail-product-name">{{ product.productNameEs }}</h1>
+                    <h1 class="product-name product-detail-product-name">{{ product.productNameEs|upper }}</h1>
                     <div class="product-price product-detail-price">
                         <div class="price-column product-detail-price-column">
                             <!-- // BUGFIX GR-3357  PDP - Fix mixed currency signs -->
@@ -49,10 +49,13 @@
                             {% for color in product.colors %}
                                 <div class="col-lg-3 col-md-3 col-sm-3">
                                     <label class="_color">
-                                        <a class="group" rel="gallery1" href="{{ path('nubbe_productdetail22') }}">
-                                            <img src="{{ asset('uploads/fotos/' ~ color.colorFoto) }}" alt="{{ color.colorNameEs }}" height="80px">
+                                        <a class="group" rel="gallery1" href="{{ path('nubbe_productdetail', { 'product': product.id, 'colorId': loop.index }) }}">
+                                            <img src="{{ asset('uploads/fotos/' ~ color.colorFoto) }}" alt="{{ color.colorNameEs }}" height="80px"
+                                            {% if colorId == loop.index %}
+                                                style="border-style: solid;border-width: 2px;border-color: #6b6b6b;"
+                                            {% endif %}>
                                         </a>
-                                        <span class="color-description">{{ color.colorNameEs }}</span>
+                                        <span class="color-description">{{ color.colorNameEs|upper }}</span>
                                     </label>
                                 </div>
                             {% endfor %}
@@ -70,14 +73,6 @@
                                             <img src="{{ asset('uploads/fotos/hong.jpg') }}" alt="" height="80px">
                                         </a>
                                         <span class="color-description">ROJO</span>
-                                    </label>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-3">
-                                    <label class="_color">
-                                        <a class="group" rel="gallery1" href="{{ path('nubbe_productdetail22') }}">
-                                            <img src="{{ asset('uploads/fotos/bai.jpg') }}" alt="" height="80px">
-                                        </a>
-                                        <span class="color-description">BLANCO</span>
                                     </label>
                                 </div>
                             </div>

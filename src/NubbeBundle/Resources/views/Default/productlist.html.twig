@@ -17,7 +17,7 @@
             <div class="col-sm-9 col-sm-offset-1 col-md-9 col-md-offset-1 imglist">
             {% for product in products %}
                 <div class='col-sm-6 col-md-4 col-lg-3 hover01'>
-                    <a href="{{ path('nubbe_productdetail', { 'product': product.id }) }}">
+                    <a href="{{ path('nubbe_productdetail', { 'product': product.id, 'colorId': 1 }) }}">
                         <figure><img src="{{ asset('uploads/fotos/' ~ product.foto) }}" height="320px"></figure>
                     </a>
                     <div class="product-info">
@@ -26,7 +26,7 @@
                         {% else %}
                             <br>
                         {% endif %}
-                        <a class="" href="{{ path('nubbe_productdetail', { 'product': product.id }) }}">{{ product.productNameEs }}</a>
+                        <a class="" href="{{ path('nubbe_productdetail', { 'product': product.id, 'colorId': 1 }) }}">{{ product.productNameEs }}</a>
                         <div class="price _product-price"><span>{{ product.price }} EUR</span></div>
                     </div>
                 </div>
