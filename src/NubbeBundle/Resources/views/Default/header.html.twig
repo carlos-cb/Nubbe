@@ -10,8 +10,12 @@
             </a>
         </div>
         <div class="rightlogo">
-            <a href="{{ path('nubbe_quiensomos') }}" class="">QUIÉN SOMOS</a>
+            {% if userNow %}
+            <a href="{{ path('nubbe_pedido') }}" class="">HOLA, {{ userNow.username }}</a>
+            {% else %}
             <a href="{{ path('fos_user_security_login') }}" class="">INICIAR SESIÓN</a>
+            {% endif %}
+            <a href="{{ path('nubbe_quiensomos') }}" class="">QUIÉN SOMOS</a>
             <a href="{{ path('nubbe_contact') }}" class="">CONTACTO</a>
             <a href="{{ path('nubbe_cart') }}" class=""><i class="fa fa-shopping-bag"></i> CESTA</a>
         </div>

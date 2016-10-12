@@ -17,26 +17,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
-
-        $cart = $this->getUser()->getCart();
-        if(!$cart) {
-            $cart = new Cart();
-            $cart->setCartState('buying')
-                ->setCreateDate(new \DateTime('now'))
-                ->setUser($this->getUser());
-            $em->persist($cart);
-            $em->flush();
-        }
-        else if($cart->getCartState() == 'over')
-        {
-            $cart->setCartState('buying')
-                ->setCreateDate(new \DateTime('now'));
-            $em->persist($cart);
-            $em->flush();
-        }
+        $userNow = $this->getUser();
 
         return $this->render('NubbeBundle:Default:index.html.twig', array(
             'categories' => $categories,
+            'userNow' => $userNow,
         ));
 }
 
@@ -44,9 +29,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
+        $userNow = $this->getUser();
 
         return $this->render('NubbeBundle:Default:contact.html.twig', array(
             'categories' => $categories,
+            'userNow' => $userNow,
         ));
     }
 
@@ -54,9 +41,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
+        $userNow = $this->getUser();
 
         return $this->render('NubbeBundle:Default:quiensomos.html.twig', array(
             'categories' => $categories,
+            'userNow' => $userNow,
         ));
     }
 
@@ -64,6 +53,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
+        $userNow = $this->getUser();
 
         $query = $em->createQuery("SELECT p FROM NubbeBundle:Product p WHERE p.category=$category and p.isShow=1");
         $products = $query->getResult();
@@ -71,6 +61,7 @@ class DefaultController extends Controller
         return $this->render('NubbeBundle:Default:productlist.html.twig', array(
             'products' => $products,
             'categories' => $categories,
+            'userNow' => $userNow,
         ));
     }
 
@@ -78,6 +69,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
+        $userNow = $this->getUser();
 
         $query = $em->createQuery("SELECT p FROM NubbeBundle:Product p WHERE p.isNew=1 and p.isShow=1");
         $products = $query->getResult();
@@ -85,6 +77,7 @@ class DefaultController extends Controller
         return $this->render('NubbeBundle:Default:productlist.html.twig', array(
             'products' => $products,
             'categories' => $categories,
+            'userNow' => $userNow,
         ));
     }
 
@@ -92,7 +85,8 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $categories = $em->getRepository('NubbeBundle:Category')->findAll();
-        
+        $userNow = $this->getUser();
+
         $colors = $product->getColors();
         $color = $colors[0];
         
@@ -100,6 +94,7 @@ class DefaultController extends Controller
             'product' => $product,
             'categories' => $categories,
             'color' => $color,
+            'userNow' => $userNow,
         ));
     }
 
@@ -110,11 +105,18 @@ class DefaultController extends Controller
 
     public function cartAction()
     {
+        $userNow = $this->getUser();
+        if(!$userNow)
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
         $cart = $this->getUser()->getCart();
         $cartItems = $cart->getCartItems();
 
         return $this->render('NubbeBundle:Default:cart.html.twig', array(
             'cartItems' => $cartItems,
+            'userNow' => $userNow,
         ));
     }
 
@@ -161,12 +163,14 @@ class DefaultController extends Controller
 
         return $this->render('NubbeBundle:Default:pedido.html.twig', array(
             'orderInfos' => $orderInfos,
+            'userNow' => $user,
         ));
     }
 
     public function productlistclientAction(OrderInfo $orderInfo)
     {
         $em = $this->getDoctrine()->getManager();
+        $userNow = $this->getUser();
 
         $query = $em->createQuery("SELECT p FROM NubbeBundle:OrderItem p WHERE p.orderInfo=$orderInfo");
         $orderItems = $query->getResult();
@@ -174,6 +178,7 @@ class DefaultController extends Controller
         return $this->render('NubbeBundle:Default:productlistclient.html.twig', array(
             'orderItems' => $orderItems,
             'orderInfo' => $orderInfo,
+            'userNow' => $userNow,
         ));
     }
 
