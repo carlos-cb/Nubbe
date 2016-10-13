@@ -1,0 +1,35 @@
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+a {
+    text-decoration: none;
+}
+
+.registro .form-group{
+    float: left;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+    margin-bottom: 1em;
+}
+.registro input[type=submit]{
+    min-width: 200px;
+    width: auto;
+    height: 40px;
+    line-height: 40px;
+    margin: 5px 0 20px 0;
+    padding: 0 1.5em 0;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background-color: black;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: white;
+    position: relative;
+    border: 1px solid #000;
+}

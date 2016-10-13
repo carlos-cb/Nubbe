@@ -18,13 +18,19 @@
 {% block content %}
     <h1 class="sub-header">Gestión de Usuarios</h1>
     <br>
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}" class="button button-rounded button-inverse">Crear Nuevo</a>
+        </li>
+    </ul>
+    <br>
     <table class="table table-bordered table-striped table-hover">
         <thead>
         <tr>
             <th>ID</th>
             <th>Nombre</th>
             <th>Correo</th>
-            <th>Utilizado</th>
+            <th>Activado</th>
             <th>Último acceso</th>
             <th>Bloqueo</th>
             <th>Caducado</th>
@@ -38,11 +44,15 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-                    {% if user.enabled %}Yes{% else %}No{% endif %}<br>
+                    {% if user.enabled %}
+                        Sí
+                    {% else %}
+                        No <a class="button button-tiny button-highlight" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea activar esta cuenta?')">Activar</a>
+                    {% endif %}
                 </td>
                 <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if user.locked %}Yes{% else %}No{% endif %}</td>
-                <td>{% if user.expired %}Yes{% else %}No{% endif %}</td>
+                <td>{% if user.locked %}Sí{% else %}No{% endif %}</td>
+                <td>{% if user.expired %}Sí{% else %}No{% endif %}</td>
                 <td>
                     <ul class="list">
                         {%for role in user.roles %}
@@ -54,5 +64,4 @@
         {% endfor %}
         </tbody>
     </table>
-    <p>Para reemplazar el nombre de usuario y contraseña, por favor, póngase en contacto con el administrador</p>
 {% endblock %}

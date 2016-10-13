@@ -40,11 +40,13 @@ class UserController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setEnabled(true);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render('user/new.html.twig', array(
@@ -124,5 +126,15 @@ class UserController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    public function enableAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user->setEnabled(true);
+        $em->persist($user);
+        $em->flush();
+
+        return $this->redirectToRoute('user_index');
     }
 }

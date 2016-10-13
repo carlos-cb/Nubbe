@@ -258,6 +258,10 @@ class DefaultController extends Controller
     
     public function loginAction()
     {
-        return $this->render('NubbeBundle:Default:login.html.twig');
+        $userNow = $this->getUser();
+
+        return $this->render('NubbeBundle:Default:login.html.twig', array(
+            'userNow' => $userNow,
+        ));
     }
 }

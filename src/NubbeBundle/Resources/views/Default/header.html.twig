@@ -10,7 +10,7 @@
             </a>
         </div>
         <div class="rightlogo">
-            {% if userNow %}
+            {% if userNow is defined and userNow %}
             <a href="{{ path('nubbe_pedido') }}" class="">HOLA, {{ userNow.username }}</a>
             {% else %}
             <a href="{{ path('fos_user_security_login') }}" class="">INICIAR SESIÓN</a>

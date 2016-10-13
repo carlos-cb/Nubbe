@@ -22,3 +22,8 @@ user_delete:
     path:     /{id}/delete
     defaults: { _controller: "NubbeBundle:User:delete" }
     methods:  DELETE
+
+user_enable:
+    path:     /{id}/enable
+    defaults: { _controller: "NubbeBundle:User:enable" }
+
