@@ -11,7 +11,7 @@
 
     <section id="main" class="content-main" role="main">
 
-        <h2>Lista de Productos</h2>
+        <h2>LISTA DE PRODUCTOS</h2>
         <br>
         <section id="shop-cart-content" data-controller="shop/shop-cart-controller">
             <form action="//www.zara.com/es/es/shop/shipping/251514673" method="POST" class="_shopCartForm">
@@ -28,12 +28,12 @@
                     {% for orderItem in orderItems %}
                         <tr id="order-item" class="order-item  _order-item-919231977">
                             <td class="_detail">
-                                <a href="{{ path('nubbe_productdetail', { 'product': orderItem.product.id }) }}" target="_self">
+                                <a href="{{ path('nubbe_productdetail', { 'product': orderItem.product.id, 'colorId': 1 }) }}" target="_self">
                                     <img src="{{ asset('uploads/fotos/' ~ orderItem.foto) }}" width="135px;">
                                 </a>
                             </td>
                             <td class="description _detail">
-                                <a href="{{ path('nubbe_productdetail', { 'product': orderItem.product.id }) }}" target="_self">
+                                <a href="{{ path('nubbe_productdetail', { 'product': orderItem.product.id, 'colorId': 1 }) }}" target="_self">
                                     <span>{{ orderItem.product.productNameEs }}</span><br>Ref.&nbsp;{{ orderItem.product.code }}
                                 </a>
                             </td>

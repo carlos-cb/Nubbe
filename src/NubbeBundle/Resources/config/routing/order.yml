@@ -21,3 +21,7 @@ nubbe_pedido:
 nubbe_productlistclient:
     path:     /pedido/productlistclient/{orderInfo}
     defaults: { _controller: NubbeBundle:Default:productlistclient }
+
+nubbe_addToCart:
+    path:     /addToCart
+    defaults: { _controller: NubbeBundle:Default:addToCart }

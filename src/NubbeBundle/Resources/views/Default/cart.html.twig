@@ -28,12 +28,12 @@
                     {% for cartItem in cartItems %}
                         <tr id="order-item" class="order-item  _order-item-919231977">
                             <td class="_detail">
-                                <a href="{{ path('nubbe_productdetail', { 'product': cartItem.product.id }) }}" target="_self">
+                                <a href="{{ path('nubbe_productdetail', { 'product': cartItem.product.id, 'colorId': 1 }) }}" target="_self">
                                     <img src="{{ asset('uploads/fotos/' ~ cartItem.foto) }}" width="135px;">
                                 </a>
                             </td>
                             <td class="description _detail">
-                                <a href="{{ path('nubbe_productdetail', { 'product': cartItem.product.id }) }}" target="_self">
+                                <a href="{{ path('nubbe_productdetail', { 'product': cartItem.product.id, 'colorId': 1 }) }}" target="_self">
                                     <span>{{ cartItem.product.productNameEs }}</span><br><br>Ref.&nbsp;{{ cartItem.product.code }}
                                 </a>
                             </td>

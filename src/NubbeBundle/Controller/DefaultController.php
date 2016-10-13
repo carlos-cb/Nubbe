@@ -142,7 +142,7 @@ class DefaultController extends Controller
         $em->remove($cartItem);
         $em->flush();
 
-        return $this->redirectToRoute('chisnbal_carrito');
+        return $this->redirectToRoute('nubbe_cart');
     }
 
     public function guestinfoAction()
@@ -201,6 +201,61 @@ class DefaultController extends Controller
         ));
     }
 
+    public function addToCartAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $cart = $this->getUser()->getCart();
+        if(!$cart) {
+            $cart = new Cart();
+            $cart->setCartState('buying')
+                ->setCreateDate(new \DateTime('now'))
+                ->setUser($this->getUser());
+            $em->persist($cart);
+            $em->flush();
+        }
+        else if($cart->getCartState() == 'over')
+        {
+            $cart->setCartState('buying')
+                ->setCreateDate(new \DateTime('now'));
+            $em->persist($cart);
+            $em->flush();
+        }
+
+        //获取ajax参数
+        $productId = $request->get('id');
+        $colorId = $request->get('color');
+        $sizeName = $request->get('size');
+
+        $repository = $this->getDoctrine()->getRepository('NubbeBundle:Product');
+        $productshiti = $repository->find($productId);
+        $repository = $this->getDoctrine()->getRepository('NubbeBundle:Color');
+        $colorshiti = $repository->find($colorId);
+
+        $exsiteColor = $this->getDoctrine()->getRepository('NubbeBundle:CartItem')->findOneBy(array('cart' => $cart, 'product' => $productshiti, 'colorId' => $colorId, 'sizeName' => $sizeName));
+
+        if($exsiteColor)
+        {
+            $exsiteColor->setQuantity($exsiteColor->getQuantity()+1);
+            $em->persist($exsiteColor);
+            $em->flush();
+        }
+        else
+        {
+            $newCartItem = new CartItem();
+            $newCartItem->setCart($cart)
+                ->setProduct($productshiti)
+                ->setQuantity(1)
+                ->setColorId($colorId)
+                ->setColorName($colorshiti->getColorNameEs())
+                ->setFoto($colorshiti->getColorFoto())
+                ->setSizeName($sizeName);
+            $cart->addCartItem($newCartItem);
+            $em->persist($newCartItem);
+            $em->flush();
+        }
+        return new Response();
+    }
+    
     public function loginAction()
     {
         return $this->render('NubbeBundle:Default:login.html.twig');

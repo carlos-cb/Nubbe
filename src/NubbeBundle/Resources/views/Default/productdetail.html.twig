@@ -53,9 +53,13 @@
                                             <img src="{{ asset('uploads/fotos/' ~ color.colorFoto) }}" alt="{{ color.colorNameEs }}" height="80px"
                                             {% if colorId == loop.index %}
                                                 style="border-style: solid;border-width: 2px;border-color: #6b6b6b;"
-                                            {% endif %}>
+                                            {% endif %}
+                                            >
                                         </a>
                                         <span class="color-description">{{ color.colorNameEs|upper }}</span>
+                                        {% if colorId == loop.index %}
+                                            <div style="display: none" class="colorid">{{ color.id }}</div>
+                                        {% endif %}
                                     </label>
                                 </div>
                             {% endfor %}
@@ -89,9 +93,9 @@
                                 </div>
                             </div>
                             <div class="table-responsive sizetable">
-                                <div class="btn-group" data-toggle="buttons">
+                                <div class="btn-group" id="size-group" data-toggle="buttons">
                                 {% for size in product.sizes %}
-                                    <label class="btn btn-default" style="width: {{ 300/product.sizes|length }}px">
+                                    <label class="btn btn-default" id="{{ size.sizeName }}" style="width: {{ 300/product.sizes|length }}px">
                                         <input type="radio" name="options" id="option" autocomplete="off"> {{ size.sizeName }}
                                     </label>
                                 {% endfor %}
@@ -99,7 +103,13 @@
                             </div>
                             <br><br><br>
                         </div>
-                        <button class="shopping-bag-cta add-to-shopping-bag various" type="submit" id="buy" onclick="window.location.href='/cart'">
+                        <button class="shopping-bag-cta add-to-shopping-bag various" type="submit"
+                                {% if userNow %}
+                                    id="buy" data-path="{{ path('nubbe_addToCart') }}"
+                                {% else %}
+                                    onclick="window.location.href='{{ path('fos_user_security_login') }}'"
+                                {% endif %}
+                        >
                             Añadir a Bolsa de Compras</button>
                         <div class="save-help guardar" data-module="tooltip">
                             <ul>
@@ -140,4 +150,8 @@
     </div>
 
     {% include 'NubbeBundle:Default:footer.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/nubbe/js/detalle.js') }}"></script>
 {% endblock %}
