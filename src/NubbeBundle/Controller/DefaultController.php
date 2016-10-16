@@ -101,13 +101,30 @@ class DefaultController extends Controller
 
     public function cartAction()
     {
+        $em = $this->getDoctrine()->getManager();
         $userNow = $this->getUser();
+
+        $cart = $this->getUser()->getCart();
+        if(!$cart) {
+            $cart = new Cart();
+            $cart->setCartState('buying')
+                ->setCreateDate(new \DateTime('now'))
+                ->setUser($this->getUser());
+            $em->persist($cart);
+            $em->flush();
+        }
+        else if($cart->getCartState() == 'over')
+        {
+            $cart->setCartState('buying')
+                ->setCreateDate(new \DateTime('now'));
+            $em->persist($cart);
+            $em->flush();
+        }
         if(!$userNow)
         {
             return $this->redirectToRoute('fos_user_security_login');
         }
 
-        $cart = $this->getUser()->getCart();
         $cartItems = $cart->getCartItems();
 
         return $this->render('NubbeBundle:Default:cart.html.twig', array(
@@ -147,7 +164,11 @@ class DefaultController extends Controller
 
     public function guestinfoAction()
     {
-        return $this->render('NubbeBundle:Default:guestinfo.html.twig');
+        $userNow = $this->getUser();
+
+        return $this->render('NubbeBundle:Default:guestinfo.html.twig', array(
+            'userNow' => $userNow,
+        ));
     }
 
     public function pedidoAction()
@@ -155,7 +176,7 @@ class DefaultController extends Controller
         $user = $this->getUser();
 
         $repository = $this->getDoctrine()->getRepository('NubbeBundle:OrderInfo');
-        $orderInfos = $repository->findByUser($user);
+        $orderInfos = $repository->findByUser($user, array('orderDate' => 'DESC'));
 
         return $this->render('NubbeBundle:Default:pedido.html.twig', array(
             'orderInfos' => $orderInfos,
@@ -254,14 +275,5 @@ class DefaultController extends Controller
             $em->flush();
         }
         return new Response();
-    }
-    
-    public function loginAction()
-    {
-        $userNow = $this->getUser();
-
-        return $this->render('NubbeBundle:Default:login.html.twig', array(
-            'userNow' => $userNow,
-        ));
     }
 }

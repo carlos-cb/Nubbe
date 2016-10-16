@@ -23,6 +23,9 @@ NubbeBundle\Entity\OrderInfo:
         receiverName:
             type: string
             length: 255
+        receiverFamilyName:
+            type: string
+            length: 255
         receiverPhone:
             type: string
             length: 255
@@ -32,6 +35,9 @@ NubbeBundle\Entity\OrderInfo:
         receiverCity:
             type: string
             length: 255
+        receiverProvince:
+            type: string
+            length: 255
         receiverEmail:
             type: string
             length: 255
@@ -39,8 +45,6 @@ NubbeBundle\Entity\OrderInfo:
             type: string
             length: 255
         isConfirmed:
-            type: boolean
-        isPayed:
             type: boolean
         isSended:
             type: boolean

@@ -14,6 +14,14 @@ nubbe_guestinfo:
     path:     /guestinfo
     defaults: { _controller: NubbeBundle:Default:guestinfo }
 
+nubbe_orderpay:
+    path:     /orderpay/{orderInfo}
+    defaults: { _controller: NubbeBundle:Order:orderpay }
+
+nubbe_cartToOrderinfo:
+    path:     /cartToOrderinfo
+    defaults: { _controller: NubbeBundle:Order:cartToOrderinfo }
+
 nubbe_pedido:
     path:     /pedido
     defaults: { _controller: NubbeBundle:Default:pedido }
@@ -25,3 +33,11 @@ nubbe_productlistclient:
 nubbe_addToCart:
     path:     /addToCart
     defaults: { _controller: NubbeBundle:Default:addToCart }
+
+nubbe_payment:
+    path:     /payment
+    defaults: { _controller: NubbeBundle:Payment:prepare }
+
+nubbe_paymentdone:
+    path:     /payment/done
+    defaults: { _controller: NubbeBundle:Payment:done }

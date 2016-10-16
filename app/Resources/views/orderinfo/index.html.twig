@@ -25,7 +25,7 @@
         <button type="button" class="btn btn-default" id="entregando">Entregando</button>
         <button type="button" class="btn btn-default" id="terminado">Terminado</button>
         <button type="button" class="btn btn-default" id="cancelado">Cancelado</button>
-        <button type="button" class="btn btn-default" id="fallado">Fallado</button>
+        <button type="button" class="btn btn-default" id="fallado">Pagando</button>
     </div>
     <br><br>
     <table class="table table-bordered table-striped table-hover">
@@ -37,7 +37,7 @@
             <th>Importe Total</th>
             <th>Pago</th>
             <th>Tiempo de generación</th>
-            <th>Confirmado</th>
+            <th>Pagado</th>
             <th>Enviado</th>
             <th>Completado</th>
             <th>Operaciones</th>
@@ -56,8 +56,7 @@
                 {% if orderInfo.state == 'preparando' %}button-highlight{% endif %}
                 {% if orderInfo.state == 'entregando' %}button-primary{% endif %}
                 {% if orderInfo.state == 'terminado' %}button-action{% endif %}
-                {% if orderInfo.state == 'cancelado' %}{% endif %}
-                {% if orderInfo.state == 'fallado' %}button-caution{% endif %}">{{ orderInfo.state|upper }}</button>
+                {% if orderInfo.state == 'cancelado' %}button-caution{% endif %}">{{ orderInfo.state|upper }}</button>
                 </td>
                 <td>{{ orderInfo.receiverName }}</td>
                 <td>{{ orderInfo.totalPrice|number_format(2, '.', ',') }} €</td>

@@ -22,7 +22,7 @@ class OrderInfoController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $orderInfos = $em->getRepository('NubbeBundle:OrderInfo')->findAll();
+        $orderInfos = $em->getRepository('NubbeBundle:OrderInfo')->findBy(array(), array('orderDate' => 'DESC'));
 
         return $this->render('orderinfo/index.html.twig', array(
             'orderInfos' => $orderInfos,

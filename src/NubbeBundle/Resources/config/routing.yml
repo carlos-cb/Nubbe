@@ -61,7 +61,3 @@ nubbe_contact:
 nubbe_quiensomos:
     path:     /quiensomos
     defaults: { _controller: NubbeBundle:Default:quiensomos }
-
-nubbe_login:
-    path:     /nubbelogin
-    defaults: { _controller: NubbeBundle:Default:login }

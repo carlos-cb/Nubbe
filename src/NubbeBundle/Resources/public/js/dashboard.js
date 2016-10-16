@@ -74,7 +74,7 @@ $(document).ready(function() {
         $(this).addClass("active");
         var table = $("table tbody").find("tr");
         for(var i=0; i<table.length; i++){
-            if($(table[i]).find("button#estado").text() == "FALLADO"){
+            if($(table[i]).find("button#estado").text() == "PAGANDO"){
                 $(table[i]).show();
             }else{
                 $(table[i]).hide();

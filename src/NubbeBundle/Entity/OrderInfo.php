@@ -605,4 +605,60 @@ class OrderInfo
     public function __toString() {
         return strval($this->id);
     }
+    /**
+     * @var string
+     */
+    private $receiverProvince;
+
+
+    /**
+     * Set receiverProvince
+     *
+     * @param string $receiverProvince
+     * @return OrderInfo
+     */
+    public function setReceiverProvince($receiverProvince)
+    {
+        $this->receiverProvince = $receiverProvince;
+
+        return $this;
+    }
+
+    /**
+     * Get receiverProvince
+     *
+     * @return string 
+     */
+    public function getReceiverProvince()
+    {
+        return $this->receiverProvince;
+    }
+    /**
+     * @var string
+     */
+    private $receiverFamilyName;
+
+
+    /**
+     * Set receiverFamilyName
+     *
+     * @param string $receiverFamilyName
+     * @return OrderInfo
+     */
+    public function setReceiverFamilyName($receiverFamilyName)
+    {
+        $this->receiverFamilyName = $receiverFamilyName;
+
+        return $this;
+    }
+
+    /**
+     * Get receiverFamilyName
+     *
+     * @return string 
+     */
+    public function getReceiverFamilyName()
+    {
+        return $this->receiverFamilyName;
+    }
 }

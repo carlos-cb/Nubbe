@@ -27,7 +27,7 @@
             <th>Importe</th>
             <th>Gasto de envío</th>
             <th>Importe Total</th>
-            <th>Método de pago</th>
+            <th>Método de envío</th>
             <th>Tiempo de generación</th>
         </tr>
         <tr>
@@ -35,24 +35,23 @@
             <td>{{ orderInfo.goodsFee|number_format(2, '.', ',') }} €</td>
             <td>{{ orderInfo.shipFee|number_format(2, '.', ',') }} €</td>
             <td>{{ orderInfo.totalPrice|number_format(2, '.', ',') }} €</td>
-            <td>{{ orderInfo.payType }}</td>
+            <td>{{ orderInfo.shipmode }}</td>
 
             <td>{% if orderInfo.orderDate %}{{ orderInfo.orderDate|date('Y-m-d H:i:s') }}{% endif %}</td>
         </tr>
         <tr>
-
-            <th>Método de envío</th>
             <th>Nombre</th>
             <th>Teléfono</th>
             <th>Ciudad</th>
+            <th>Provincia</th>
             <th>Código Postal</th>
             <th>Dirección</th>
         </tr>
         <tr>
-            <td height="100">{{ orderInfo.shipmode }}</td>
-            <td>{{ orderInfo.receiverName }}</td>
+            <td height="100">{{ orderInfo.receiverName }}</td>
             <td>{{ orderInfo.receiverPhone }}</td>
             <td>{{ orderInfo.receiverCity }}</td>
+            <td>{{ orderInfo.receiverProvince }}</td>
             <td>{{ orderInfo.receiverPostcode }}</td>
             <td>{{ orderInfo.receiverAdress }}</td>
         </tr>

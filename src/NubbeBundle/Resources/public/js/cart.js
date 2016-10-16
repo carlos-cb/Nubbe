@@ -52,7 +52,7 @@ $(function(){
         for(var i=0; i<tt.length; i++){
             totalprice += parseFloat($(tt[i]).find('#heji').text());
         }
-        var total = totalprice + 5;
+        var total = totalprice + 3;
         $("#totalprice").html(totalprice.toFixed(2));
         $("#total").html(total.toFixed(2));
     }

@@ -83,3 +83,15 @@ fos_user:
 
 vich_uploader:
     db_driver: orm
+
+payum:
+    security:
+        token_storage:
+            NubbeBundle\Entity\PaymentToken: { doctrine: orm }
+
+    storages:
+        NubbeBundle\Entity\Payment: { doctrine: orm }
+
+    gateways:
+        offline:
+            factory: offline

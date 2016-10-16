@@ -29,7 +29,10 @@
                         <tr id="order-item" class="order-item  _order-item-919231977">
                             <td class="_detail" style="height: 50px">{{ orderInfo.id }}</td>
                             <td class="description _detail">{% if orderInfo.orderDate %}{{ orderInfo.orderDate|date('Y-m-d') }}{% endif %}</td>
-                            <td class="color">{{ orderInfo.state }}</td>
+                            <td class="color">
+                                {{ orderInfo.state }}
+                                {% if orderInfo.state == 'pagando' %} &nbsp;&nbsp;&nbsp;<a href="{{ path('nubbe_orderpay', { 'orderInfo': orderInfo.id }) }}" class="button button-tiny button-inverse button-rounded">Pagar</a>{% endif %}
+                            </td>
                             <td>{{ orderInfo.totalPrice }} EUR</td>
                             <td>{% if orderInfo.envio %}{{ orderInfo.envio }}{% endif %}</td>
                             <td>
