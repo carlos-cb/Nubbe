@@ -103,6 +103,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $userNow = $this->getUser();
+        if(!$userNow)
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
 
         $cart = $this->getUser()->getCart();
         if(!$cart) {
@@ -119,10 +124,6 @@ class DefaultController extends Controller
                 ->setCreateDate(new \DateTime('now'));
             $em->persist($cart);
             $em->flush();
-        }
-        if(!$userNow)
-        {
-            return $this->redirectToRoute('fos_user_security_login');
         }
 
         $cartItems = $cart->getCartItems();
