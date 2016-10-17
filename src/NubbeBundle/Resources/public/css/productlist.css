@@ -135,7 +135,9 @@
     width: 1px;
 }
 .guardar ul{
-    -webkit-padding-start: 10px;!important;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
 }
 
 .product-details-nav {
