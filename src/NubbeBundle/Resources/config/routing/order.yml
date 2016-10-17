@@ -34,10 +34,10 @@ nubbe_addToCart:
     path:     /addToCart
     defaults: { _controller: NubbeBundle:Default:addToCart }
 
-nubbe_payment:
-    path:     /payment
-    defaults: { _controller: NubbeBundle:Payment:prepare }
+payment_prepareStripe:
+    path:     /payment/prepareStripe/{orderInfo}
+    defaults: { _controller: NubbeBundle:Payment:prepareStripe }
 
-nubbe_paymentdone:
+payment_paymentDone:
     path:     /payment/done
     defaults: { _controller: NubbeBundle:Payment:done }

@@ -10,8 +10,7 @@
 
     {% include 'NubbeBundle:Default:header.html.twig' %}
 
-    <div class="container" style="padding-left: calc(5% + 0px);
-    padding-right: calc(5% + 0px);">
+    <div class="container" style="padding-left: calc(5% + 0px); padding-right: calc(5% + 0px);">
         <div class="line mod">
             <div class="unit size1of1">
                 <h2>Tramita pedido</h2>
@@ -30,19 +29,16 @@
         </div>
         <form class="form-horizontal" method="post" enctype="multipart/form-data" action="" name="orderinfo">
             <div class="line mod">
-                <div class="radioGroup">
-                    <h2>Método de envío</h2>
-                    <div style="display: none">
-                        <input id="radio-1" class="radio-custom" name="radio-group" type="radio" value="1" checked>
-                        <label for="radio-1" class="radio-custom-label">Recoger en tienda: En la tienda que elijas en 2-3 días laborables. Gratuito</label>
+                <div class="">
+                    <h2>Método de Pago</h2>
+                    <br><br><br>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="" style="position: relative; bottom: 40px;"><img width="315px" src="{{ asset('bundles/nubbe/img/paypal.png') }}"></a>
                     </div>
-                    <div>
-                        <input id="radio-2" class="radio-custom" name="radio-group" type="radio" value="2">
-                        <label for="radio-2" class="radio-custom-label">Estándar: En 2-3 días laborables. 3,95 EUR</label>
-                    </div>
-                    <div>
-                        <input id="radio-3" class="radio-custom" name="radio-group" type="radio" value="3">
-                        <label for="radio-3" class="radio-custom-label">Express: En 24-48 horas (días laborables). 5,95 EUR</label>
+                    <div class="col-sm-6">
+                        <a href="{{ path('payment_prepareStripe', { 'orderInfo': orderInfo.id }) }}"><img src="{{ asset('bundles/nubbe/img/logostripe.png') }}"></a>
                     </div>
                 </div>
             </div>
@@ -159,3 +155,7 @@
 
     {% include 'NubbeBundle:Default:footer.html.twig' %}
 {% endblock %}
+        {% block javascripts %}
+            {{ parent() }}
+            <script src="{{ asset('bundles/nubbe/js/orderpay.js') }}"></script>
+        {% endblock %}

@@ -93,5 +93,7 @@ payum:
         NubbeBundle\Entity\Payment: { doctrine: orm }
 
     gateways:
-        offline:
-            factory: offline
+        stripe_js:
+            factory: stripe_js
+            publishable_key: 'pk_test_kyc0ZUt7C8jU8ai4HdOPSBMV'
+            secret_key:      'sk_test_0BFS8DvBZOjLzo1XIbWsx7KM'

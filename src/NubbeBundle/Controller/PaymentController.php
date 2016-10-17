@@ -2,33 +2,31 @@
 
 namespace NubbeBundle\Controller;
 
+use NubbeBundle\Entity\OrderInfo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Payum\Core\Request\GetHumanStatus;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
 class PaymentController extends Controller
 {
-    public function prepareAction()
+    public function prepareStripeAction(OrderInfo $orderInfo)
     {
-        $gatewayName = 'offline';
+        $gatewayName = 'stripe_js';
 
         $storage = $this->get('payum')->getStorage('NubbeBundle\Entity\Payment');
 
         $payment = $storage->create();
-        $payment->setNumber(uniqid());
+        $payment->setNumber($orderInfo->getId());
         $payment->setCurrencyCode('EUR');
-        $payment->setTotalAmount(123); // 1.23 EUR
-        $payment->setDescription('A description');
-        $payment->setClientId('anId');
-        $payment->setClientEmail('foo@example.com');
+        $payment->setTotalAmount($orderInfo->getTotalPrice() * 100); // 1.23 EUR
+        $payment->setClientId($orderInfo->getUser());
 
         $storage->update($payment);
 
         $captureToken = $this->get('payum')->getTokenFactory()->createCaptureToken(
             $gatewayName,
             $payment,
-            'nubbe_paymentdone' // the route to redirect after capture
+            'payment_paymentDone' // the route to redirect after capture
         );
 
         return $this->redirect($captureToken->getTargetUrl());
@@ -37,30 +35,42 @@ class PaymentController extends Controller
     public function doneAction(Request $request)
     {
         $token = $this->get('payum')->getHttpRequestVerifier()->verify($request);
-
         $gateway = $this->get('payum')->getGateway($token->getGatewayName());
 
-        // you can invalidate the token. The url could not be requested any more.
-        // $this->get('payum')->getHttpRequestVerifier()->invalidate($token);
-
-        // Once you have token you can get the model from the storage directly.
-        //$identity = $token->getDetails();
-        //$payment = $this->get('payum')->getStorage($identity->getClass())->find($identity);
-
-        // or Payum can fetch the model for you while executing a request (Preferred).
         $gateway->execute($status = new GetHumanStatus($token));
         $payment = $status->getFirstModel();
 
-        // you have order and payment status
-        // so you can do whatever you want for example you can just print status and payment details.
+        $paymentStatus = false;
+        if ($token->getGatewayName() === 'stripe_js'&& $status->isCaptured())
+        {
+            if ($status->getValue() === 'captured')
+            {
+                $paymentStatus = true;
+            }
+        }
 
-        return new JsonResponse(array(
-            'status' => $status->getValue(),
-            'payment' => array(
-                'total_amount' => $payment->getTotalAmount(),
-                'currency_code' => $payment->getCurrencyCode(),
-                'details' => $payment->getDetails(),
-            ),
-        ));
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+        $orderInfoId = $payment->getNumber();
+        $orderInfo = $em->getRepository('NubbeBundle:OrderInfo')->findOneById($orderInfoId);
+        
+        if ($paymentStatus === true)
+        {
+            //修改订单状态
+
+            $orderInfo->setIsConfirmed(true)->setState('preparando');
+            $em->persist($orderInfo);
+            $em->flush();
+
+            return $this->render('NubbeBundle:Payment:successpayment.html.twig', array(
+                'status' => $status->getValue(),
+                'orderInfo' => $orderInfo,
+                'userNow' => $user,
+            ));
+        } else {
+            return $this->render('NubbeBundle:Payment:errorpayment.html.twig', array(
+                'orderInfo' => $orderInfo,
+            ));
+        }
     }
 }

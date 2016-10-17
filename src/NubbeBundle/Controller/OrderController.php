@@ -62,6 +62,7 @@ class OrderController extends Controller
             $cart = $this->getUser()->getCart();
             $cart->setCartState('over');
             $em->flush();
+
         }else{
             return $this->redirectToRoute('nubbe_cart');
         }
