@@ -2,6 +2,9 @@
 .imglist{
     text-align: center;
 }
+.imglist img{
+    max-width: 100%;
+}
 .product-info {
     text-align: center;
     font-size: 14px;
