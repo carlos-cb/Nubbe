@@ -13,17 +13,25 @@ class OrderController extends Controller
     {
         $priceAll = $this->countAll();
         $priceIni = $priceAll;
-        $yunfei = 0;
-        $shipmode = "Recoger en tienda";
-        if($request->get('radio-group') == '2'){
+        $yunfei = 3.95;
+        $shipmode = "Estándar";
+        if($request->get('radio-group') == '2')
+        {
             $yunfei = 3.95;
             $shipmode = "Estándar";
             $priceAll= $priceAll + $yunfei;
         }
-        if($request->get('radio-group') == '3'){
+        if($request->get('radio-group') == '3')
+        {
             $yunfei = 5.95;
             $shipmode = "Express";
             $priceAll= $priceAll + $yunfei;
+        }
+        //超过30欧免普通运费
+        if($priceIni >= 30 && $yunfei == 3.95)
+        {
+            $yunfei = 0;
+            $priceAll = $priceAll - 3.95;
         }
         //根据用户填写的表格新建订单
         if($request->getMethod() == 'POST' && ($priceIni!=0) ){
