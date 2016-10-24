@@ -84,13 +84,20 @@ $(document).ready(function() {
 });
 
 var ctx = document.getElementById("myChart");
+var day6order = $("div#day6order").text();
+var day5order = $("div#day5order").text();
+var day4order = $("div#day4order").text();
+var day3order = $("div#day3order").text();
+var day2order = $("div#day2order").text();
+var day1order = $("div#day1order").text();
+
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Día-6", "Día-5", "Día-4", "Anteayer", "Ayer", "Hoy"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: 'CANTIDAD DE PEDIDOS(ÚLTIMA SEMANA)',
+            data: [day6order, day5order, day4order, day3order, day2order, day1order],
             backgroundColor: [
                 '#ff4a70',
                 '#1f97e9',
@@ -114,6 +121,7 @@ var myChart = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
+                    stepSize: 1,
                     beginAtZero:true
                 }
             }]
@@ -125,9 +133,9 @@ var ctx1 = document.getElementById("myChart1");
 var myChart1 = new Chart(ctx1, {
     type: 'bar',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["Día-6", "Día-5", "Día-4", "Anteayer", "Ayer", "Hoy"],
         datasets: [{
-            label: '# of Votes',
+            label: 'CANTIDAD DE USUARIO ACTIVOS(ÚLTIMA SEMANA)',
             data: [12, 19, 3, 5, 2, 3],
             backgroundColor: [
                 '#ff4a70',

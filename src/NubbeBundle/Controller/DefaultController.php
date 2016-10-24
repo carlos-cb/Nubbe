@@ -214,12 +214,19 @@ class DefaultController extends Controller
         $queryO = $em->createQuery("SELECT t FROM NubbeBundle:OrderInfo t WHERE 1=1 order by t.id DESC")->setMaxResults(10);
         $orders = $queryO->getResult();
 
+        $day6Orders = array();
+        for($i=0; $i<6; $i++){
+            $queryday6Orders[$i] = $em->createQuery("SELECT COUNT(o) FROM NubbeBundle:OrderInfo o where o.orderDate <= DATE_ADD(CURRENT_DATE(), (1-$i), 'day') and o.orderDate >= DATE_SUB(CURRENT_DATE(), $i, 'day')");
+            $day6Orders[$i] = $queryday6Orders[$i]->getSingleScalarResult();
+        }
+
         return $this->render('NubbeBundle:BackEnd:overview.html.twig', array(
             'numUser' => $numUser,
             'numOrder' => $numOrder,
             'numProduct' => $numProduct,
             'users' => $users,
-            'orders' => $orders
+            'orders' => $orders,
+            'day6Orders' => $day6Orders,
         ));
     }
 

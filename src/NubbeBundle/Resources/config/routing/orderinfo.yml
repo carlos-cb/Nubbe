@@ -3,6 +3,10 @@ orderinfo_index:
     defaults: { _controller: "NubbeBundle:OrderInfo:index" }
     methods:  GET
 
+orderinfo_indexUser:
+    path:     /user/{user}
+    defaults: { _controller: "NubbeBundle:OrderInfo:indexUser" }
+
 orderinfo_show:
     path:     /{id}/show
     defaults: { _controller: "NubbeBundle:OrderInfo:show" }

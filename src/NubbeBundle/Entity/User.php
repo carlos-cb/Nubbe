@@ -103,4 +103,16 @@ class User extends BaseUser
     {
         return $this->orderInfos;
     }
+
+    public function getOrderInfoSum()
+    {
+        $orderInfos = $this->orderInfos;
+        $sum = 0;
+        foreach($orderInfos as $orderInfo)
+        {
+            $sum += $orderInfo->getTotalPrice();
+        }
+        
+        return $sum;
+    }
 }

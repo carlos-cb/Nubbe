@@ -2,6 +2,7 @@
 
 namespace NubbeBundle\Controller;
 
+use NubbeBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -26,6 +27,22 @@ class OrderInfoController extends Controller
 
         return $this->render('orderinfo/index.html.twig', array(
             'orderInfos' => $orderInfos,
+        ));
+    }
+
+    /**
+     * Lists all OrderInfo entities de one user.
+     *
+     */
+    public function indexUserAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $orderInfos = $em->getRepository('NubbeBundle:OrderInfo')->findByUser($user, array('orderDate' => 'DESC'));
+
+        return $this->render('orderinfo/index.html.twig', array(
+            'orderInfos' => $orderInfos,
+            'user' => $user
         ));
     }
 

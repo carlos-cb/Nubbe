@@ -23,7 +23,7 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $users = $em->getRepository('NubbeBundle:User')->findAll();
-
+        
         return $this->render('user/index.html.twig', array(
             'users' => $users,
         ));
@@ -131,7 +131,7 @@ class UserController extends Controller
     public function enableAction(User $user)
     {
         $em = $this->getDoctrine()->getManager();
-        $user->setEnabled(true);
+        $user->setEnabled(!$user->isEnabled());
         $em->persist($user);
         $em->flush();
 

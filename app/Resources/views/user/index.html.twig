@@ -32,8 +32,8 @@
             <th>Correo</th>
             <th>Activado</th>
             <th>Último acceso</th>
-            <th>Bloqueo</th>
-            <th>Caducado</th>
+            <th>Pedidos</th>
+            <th>Consumo Total</th>
             <th>Regla de usuario</th>
         </tr>
         </thead>
@@ -45,18 +45,20 @@
                 <td>{{ user.email }}</td>
                 <td>
                     {% if user.enabled %}
-                        Sí
+                        Sí <br>
+                        <a class="button button-tiny button-highlight" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea desactivar esta cuenta?')">Desactivar</a>
                     {% else %}
-                        No <a class="button button-tiny button-highlight" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea activar esta cuenta?')">Activar</a>
+                        No <br>
+                        <a class="button button-tiny button-primary" href="{{ path('user_enable', { 'id': user.id }) }}" onclick="return confirm('Desea activar esta cuenta?')">Activar</a>
                     {% endif %}
                 </td>
                 <td>{% if user.lastLogin %}{{ user.lastLogin|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if user.locked %}Sí{% else %}No{% endif %}</td>
-                <td>{% if user.expired %}Sí{% else %}No{% endif %}</td>
+                <td><a class="button button-tiny button-primary" href="{{ path('orderinfo_indexUser', { 'user': user.id }) }}">Ver</a></td>
+                <td>{{ user.OrderInfoSum|number_format(2, '.', ',') }} €</td>
                 <td>
                     <ul class="list">
                         {%for role in user.roles %}
-                            <li>{{role}}</li>
+                            <li>{% if role == 'ROLE_SUPER_ADMIN' %}Super Administrator{% else %}Usuario Normal{% endif %}</li>
                         {%endfor%}
                     </ul>
                 </td>
