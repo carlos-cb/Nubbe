@@ -56,6 +56,22 @@ class PaymentController extends Controller
         
         if ($paymentStatus === true)
         {
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Nuevo Pedido En nubbemoda.com')
+                ->setFrom(array('info@nubbemoda.com' => 'Nubbe Moda'))
+                ->setTo($user->getEmail())
+                ->setContentType('text/html')
+                ->setBody(
+                    $this->renderView(
+                        'NubbeBundle:Payment:successpaymentEmail.html.twig', array(
+                            'status' => $status->getValue(),
+                            'orderInfo' => $orderInfo,
+                            'userNow' => $user,
+                    )),
+                    'text/html'
+                );
+            $this->get('mailer')->send($message);
+
             //修改订单状态
 
             $orderInfo->setIsConfirmed(true)->setState('preparando');
